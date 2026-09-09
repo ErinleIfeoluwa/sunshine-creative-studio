@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Updates — Sunshine Creative Studio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #141C24;
+  --emerald: #33586B;
+  --emerald-dark: #21404E;
+  --magenta: #5C7C93;
+  --cream: #E7EBEE;
+  --sand: #D4DBE1;
+  --line: rgba(20, 28, 36, 0.14);
+  --max-width: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, .headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 0;
+}
+.nav-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.15s ease;
+}
+.nav-links a:hover { border-color: var(--magenta); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 40px 0 70px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-text .kicker {
+  font-size: 0.95rem;
+  color: var(--emerald-dark);
+  margin: 0 0 14px;
+}
+.hero-text h1 {
+  font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+  max-width: 12ch;
+}
+.hero-text p {
+  max-width: 42ch;
+  margin: 22px 0 30px;
+  font-size: 1.05rem;
+  color: rgba(20,28,36,0.82);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  text-decoration: none;
+  padding: 13px 26px;
+  font-size: 0.95rem;
+  border: 1px solid var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn:hover { background: var(--magenta); border-color: var(--magenta); }
+.btn-outline {
+  display: inline-block;
+  text-decoration: none;
+  padding: 13px 26px;
+  font-size: 0.95rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  margin-left: 12px;
+}
+.btn-outline:hover { border-color: var(--magenta); color: var(--magenta); }
+
+/* Hero collage */
+.collage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  aspect-ratio: 1 / 1;
+}
+.collage .tile {
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  text-align: center;
+  padding: 14px;
+  color: var(--cream);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+.tile-1 { background: var(--emerald); grid-row: 1; grid-column: 1; }
+.tile-2 { background: var(--magenta); font-size: 0.95rem; grid-row: 1; grid-column: 2; }
+.tile-3 { background: var(--sand); color: var(--ink); font-size: 0.95rem; grid-row: 2; grid-column: 1; }
+.tile-4 { background: var(--ink); grid-row: 2; grid-column: 2; }
+
+/* ---------- Section shell ---------- */
+section { padding: 64px 0; border-top: 1px solid var(--line); }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 36px;
+  gap: 20px;
+}
+.section-head h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+.section-head p { max-width: 34ch; color: rgba(20,28,36,0.75); margin: 0; font-size: 0.98rem; }
+
+/* ---------- Services ---------- */
+.services-list { border-top: 1px solid var(--line); }
+.service-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.service-row h3 { font-size: 1.2rem; font-weight: 500; }
+.service-row p { margin: 0; color: rgba(20,28,36,0.75); font-size: 0.95rem; }
+.service-row .num {
+  font-family: 'Fraunces', serif;
+  color: var(--emerald);
+  font-size: 1rem;
+}
+
+/* ---------- Portfolio ---------- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.portfolio-item {
+  aspect-ratio: 4/5;
+  background: var(--sand);
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.portfolio-item span {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  position: relative;
+  z-index: 1;
+}
+.portfolio-item.has-image {
+  align-items: flex-end;
+}
+.portfolio-item.has-image span {
+  color: #fff;
+  background: rgba(20,28,36,0.55);
+  padding: 6px 10px;
+  border-radius: 2px;
+  font-size: 0.9rem;
+}
+.portfolio-item.dark { background: var(--ink); }
+.portfolio-item.dark span { color: var(--cream); }
+.portfolio-item.emerald { background: var(--emerald); }
+.portfolio-item.emerald span { color: var(--cream); }
+
+/* ---------- Blog / Updates ---------- */
+.post-list { border-top: 1px solid var(--line); }
+.post-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 28px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+.post-row .date {
+  font-size: 0.88rem;
+  color: rgba(20,28,36,0.6);
+  padding-top: 4px;
+}
+.post-row h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.post-row p { margin: 0; color: rgba(20,28,36,0.75); font-size: 0.96rem; max-width: 60ch; }
+.post-row:hover h3 { color: var(--magenta); }
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+.contact-info p { color: rgba(20,28,36,0.8); max-width: 36ch; }
+.contact-info .detail { margin-top: 22px; font-size: 0.98rem; }
+.contact-info .detail strong { display: block; font-family: 'Fraunces', serif; font-weight: 500; margin-bottom: 4px; }
+
+form { display: flex; flex-direction: column; gap: 16px; }
+label { font-size: 0.88rem; color: rgba(20,28,36,0.7); }
+input, textarea {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 0;
+}
+input:focus, textarea:focus { outline: 2px solid var(--emerald); outline-offset: 2px; }
+textarea { resize: vertical; min-height: 110px; }
+form .btn { align-self: flex-start; border: none; cursor: pointer; }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: rgba(20,28,36,0.65);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; }
+  .collage { max-width: 420px; margin: 0 auto; }
+  .service-row { grid-template-columns: 1fr; gap: 6px; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .post-row { grid-template-columns: 1fr; gap: 6px; }
+  .nav-links { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="wrap nav">
+  <a href="index.html" class="nav-mark">Sunshine Creative Studio</a>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="blog.html">Updates</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section style="border-top:none; padding-bottom: 20px;">
+  <div class="wrap">
+    <h1 class="headline" style="font-size: clamp(2rem, 4vw, 2.8rem);">Studio updates</h1>
+    <p style="max-width:50ch; color: rgba(23,33,25,0.75); margin-top:14px;">News, new work, and offers from Sunshine Creative Studio.</p>
+  </div>
+</section>
+
+<section style="padding-top: 10px;">
+  <div class="wrap">
+    <div class="post-list" id="all-posts"></div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> Sunshine Creative Studio</span>
+  <span><a href="index.html">Back to home</a></span>
+</footer>
+
+<script>
+// Add a new post by adding an object to the top of this array.
+// date: shown as-is, so format it however you like (e.g. "Sep 2026")
+// title: the post headline
+// summary: 1-2 sentence teaser shown in the list
+const POSTS = [
+  {
+    date: "Sep 2026",
+    title: "Now booking December birthday & owambe season",
+    summary: "December is our busiest month for birthday flyers and event posters — get your design slot booked early to avoid the rush."
+  },
+  {
+    date: "Aug 2026",
+    title: "New: social media graphic sets",
+    summary: "We now offer matching sets of Instagram posts and stories, so your whole feed stays on-brand between big designs."
+  },
+  {
+    date: "Jul 2026",
+    title: "Sunshine Creative Studio site is live",
+    summary: "Our portfolio is now online — browse recent birthday flyers, event posters, and church designs in one place."
+  }
+];
+
+// Add/remove portfolio items here, or use admin.html to generate this file.
+// tone: "emerald" | "dark" | "sand" (controls the placeholder tile color until you add real images)
+const PORTFOLIO = [
+  { title: "30th Birthday Flyer", tone: "emerald" },
+  { title: "Product Launch Poster", tone: "dark" },
+  { title: "Church Anniversary Program", tone: "sand" },
+  { title: "Instagram Post Set", tone: "dark" },
+  { title: "Wedding Invitation", tone: "sand" },
+  { title: "Business Promo Flyer", tone: "emerald" }
+];
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function renderPosts(containerId, limit) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const posts = limit ? POSTS.slice(0, limit) : POSTS;
+  container.innerHTML = posts.map(post => `
+    <a class="post-row" href="blog.html">
+      <span class="date">${post.date}</span>
+      <div>
+        <h3>${post.title}</h3>
+        <p>${post.summary}</p>
+      </div>
+    </a>
+  `).join('');
+}
+
+renderPosts('home-posts', 3);
+renderPosts('all-posts');
+
+function renderPortfolio() {
+  const container = document.getElementById('portfolio-grid');
+  if (!container || typeof PORTFOLIO === 'undefined') return;
+  container.innerHTML = PORTFOLIO.map(item => `
+    <div class="portfolio-item ${item.tone || ''}"><span>${item.title}</span></div>
+  `).join('');
+}
+
+renderPortfolio();
+
+</script>
+</body>
+</html>
