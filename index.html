@@ -6,6 +6,17 @@
 <title>Sunshine Creative Studio — Graphic Design, Nigeria</title>
 <meta name="description" content="Sunshine Creative Studio designs birthday flyers, business flyers, event posters, church graphics and social media content across Nigeria.">
 <style>
+
+.collage .tile, .portfolio-item {
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  will-change: transform;
+}
+.portfolio-item:hover, .collage .tile:hover {
+  box-shadow: 0 20px 40px rgba(20,28,36,0.25);
+}
+@media (prefers-reduced-motion: reduce) {
+  .collage .tile, .portfolio-item { transition: none !important; }
+}
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap');
 
 :root {
