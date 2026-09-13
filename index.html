@@ -445,6 +445,70 @@ footer {
 (function(){
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  function getPoint(e) {
+    // Works for both mouse and touch events
+    if (e.touches && e.touches.length) {
+      return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+    return { x: e.clientX, y: e.clientY };
+  }
+
+  const hero = document.querySelector('.hero');
+  const tiles = document.querySelectorAll('.collage .tile');
+  if (hero) {
+    function moveHero(e) {
+      const rect = hero.getBoundingClientRect();
+      const p = getPoint(e);
+      const x = (p.x - rect.left) / rect.width - 0.5;
+      const y = (p.y - rect.top) / rect.height - 0.5;
+      tiles.forEach((tile, i) => {
+        const depth = (i + 1) * 6;
+        tile.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
+      });
+    }
+    function resetHero() {
+      tiles.forEach(tile => tile.style.transform = 'translate(0,0)');
+    }
+    hero.addEventListener('mousemove', moveHero);
+    hero.addEventListener('mouseleave', resetHero);
+    hero.addEventListener('touchmove', moveHero, { passive: true });
+    hero.addEventListener('touchend', resetHero);
+  }
+
+  const grid = document.getElementById('portfolio-grid');
+  if (grid) {
+    function tiltCard(e) {
+      const p = getPoint(e);
+      const el = document.elementFromPoint(p.x, p.y);
+      const card = el && el.closest && el.closest('.portfolio-item');
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = (p.x - rect.left) / rect.width - 0.5;
+      const y = (p.y - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) scale(1.015)`;
+    }
+    function resetCards() {
+      grid.querySelectorAll('.portfolio-item').forEach(c => c.style.transform = '');
+    }
+    grid.addEventListener('mousemove', (e) => {
+      const card = e.target.closest('.portfolio-item');
+      if (card) tiltCard(e);
+    });
+    grid.addEventListener('mouseout', (e) => {
+      const card = e.target.closest('.portfolio-item');
+      if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
+        card.style.transform = '';
+      }
+    });
+    grid.addEventListener('touchmove', tiltCard, { passive: true });
+    grid.addEventListener('touchend', resetCards);
+  }
+})();
+</script>
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   const hero = document.querySelector('.hero');
   const tiles = document.querySelectorAll('.collage .tile');
   if (hero) {
