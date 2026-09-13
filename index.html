@@ -441,7 +441,46 @@ footer {
   <span>© <span id="year"></span> Sunshine Creative Studio</span>
   <span>Nigeria</span>
 </footer>
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  const hero = document.querySelector('.hero');
+  const tiles = document.querySelectorAll('.collage .tile');
+  if (hero) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      tiles.forEach((tile, i) => {
+        const depth = (i + 1) * 6;
+        tile.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
+      });
+    });
+    hero.addEventListener('mouseleave', () => {
+      tiles.forEach(tile => tile.style.transform = 'translate(0,0)');
+    });
+  }
+
+  const grid = document.getElementById('portfolio-grid');
+  if (grid) {
+    grid.addEventListener('mousemove', (e) => {
+      const card = e.target.closest('.portfolio-item');
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) scale(1.015)`;
+    });
+    grid.addEventListener('mouseout', (e) => {
+      const card = e.target.closest('.portfolio-item');
+      if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
+        card.style.transform = '';
+      }
+    });
+  }
+})();
+</script>
 <script>
 // Add a new post by adding an object to the top of this array.
 // date: shown as-is, so format it however you like (e.g. "Sep 2026")
